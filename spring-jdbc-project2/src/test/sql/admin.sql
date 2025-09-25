@@ -21,7 +21,6 @@ WHERE c.id = 'college_001'  -- 要操作的学院ID
   AND u.role = 2  -- 管理员角色
   AND u.college_id = c.college_id;
 -- 插入新节点
-explain
 INSERT INTO node (id,category_id,node_name,parent_id,description,max_score,limit_count,create_time)
 VALUES ('node_010','category_001','测试','node_005','描述',100,10,NOW());
 -- 然后插入与父节点的所有祖先关系
