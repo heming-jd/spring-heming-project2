@@ -1,8 +1,9 @@
 # 查找根节点
 explain
-select *
-from node n
-where n.category_id = 'node_009' and n.parent_id is null;
+SELECT ancestor_id ,level
+FROM node_closure
+WHERE descendant_id = 'node_007'
+ORDER BY level DESC;
 #根据节点id查找子节点
 explain
 SELECT n.*, nc.level
