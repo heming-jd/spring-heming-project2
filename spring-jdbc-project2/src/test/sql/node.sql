@@ -6,12 +6,10 @@ WHERE descendant_id = 'node_007'
 ORDER BY level DESC;
 #根据节点id查找子节点
 explain
-SELECT n.*, nc.level
-FROM node n
-         INNER JOIN node_closure nc ON n.id = nc.descendant_id
-WHERE nc.ancestor_id = 'node_001'  -- 父节点ID
-  AND nc.level = 1        -- 直接子节点（层级差为1）
-ORDER BY n.node_name;
+SELECT descendant_id ,level
+FROM node_closure
+WHERE ancestor_id= 'node_001'
+ORDER BY level DESC;
 
 # 查询所有子节点
 explain
